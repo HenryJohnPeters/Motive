@@ -29,12 +29,25 @@ export const Map = () => {
   }, [globeView]);
 
   const enableGlobeMode = () => {
-    debugger;
     mapObject.current.remove();
     mapObject.current = new mapboxgl.Map({
       projection: "globe",
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
+      zoom: 2,
+      center: [lng, lat],
+    });
+    setMap(mapObject);
+    debugger;
+  };
+
+  const enableStreetMode = () => {
+    mapObject.current.remove();
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: [lng, lat],
+      zoom: zoom,
     });
     setMap(mapObject);
     debugger;
@@ -70,9 +83,15 @@ export const Map = () => {
     <div className="w-full flex">
       <div
         onClick={() => enableGlobeMode()}
-        className="bg-white cursor-pointer rounded p-2 top-0 right-0 z-40 absolute"
+        className="bg-black text-white cursor-pointer rounded p-2 top-0 right-0 z-40 absolute"
       >
-        Click here
+        Globe mode
+      </div>
+      <div
+        onClick={() => enableStreetMode()}
+        className="bg-black text-white cursor-pointer rounded p-2 top-30 right-0 z-40 absolute"
+      >
+        Street mode
       </div>
       <div className="bg-white rounded p-2 bottom-0 right-0 z-40 absolute">
         Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
