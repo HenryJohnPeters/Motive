@@ -7,11 +7,11 @@ import SideBar from "../components/Layout/SideNav";
 import { Map } from "../components/Map/map";
 
 export default function Home() {
-  return (
-    <div className="w-full">
-      <Header />
-      <Map />
-      <SideBar />
-    </div>
-  );
+	return (
+		<div className="w-full">
+			<Header />
+			<Map />
+			<SideBar />
+		</div>
+	);
 }
