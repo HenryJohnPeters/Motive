@@ -66,7 +66,32 @@ export const Map = () => {
         .addTo(map.current);
     }
 
-    if (map.current) return; // initialize map only once
+    if (map.current) {
+      map.current.on("style.load", () => {
+        for (const marker of geojson.features) {
+          // Create a DOM element for each marker.
+          const el = document.createElement("div");
+          const width = marker.properties.iconSize[0];
+          const height = marker.properties.iconSize[1];
+          el.className = "marker";
+          el.style.backgroundImage = `url(https://placekitten.com/g/${width}/${height}/)`;
+          el.style.width = `${width}px`;
+          el.style.height = `${height}px`;
+          el.style.borderRadius = "20px";
+          el.style.backgroundSize = "100%";
+
+          el.addEventListener("click", () => {
+            window.alert(marker.properties.message);
+          });
+
+          // Add markers to the map.
+          new mapboxgl.Marker(el)
+            .setLngLat(marker.geometry.coordinates)
+            .addTo(map.current);
+        }
+      });
+      return;
+    } // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
@@ -76,32 +101,10 @@ export const Map = () => {
       pitch: 50,
       //bearing: 170,
     });
-    map.current.on("style.load", () => {
-      for (const marker of geojson.features) {
-        // Create a DOM element for each marker.
-        const el = document.createElement("div");
-        const width = marker.properties.iconSize[0];
-        const height = marker.properties.iconSize[1];
-        el.className = "marker";
-        el.style.backgroundImage = `url(https://placekitten.com/g/${width}/${height}/)`;
-        el.style.width = `${width}px`;
-        el.style.height = `${height}px`;
-        el.style.backgroundSize = "100%";
-
-        el.addEventListener("click", () => {
-          window.alert(marker.properties.message);
-        });
-
-        // Add markers to the map.
-        new mapboxgl.Marker(el)
-          .setLngLat(marker.geometry.coordinates)
-          .addTo(map.current);
-      }
-    });
 
     getUser();
     setMap(map);
-  }, [mapObject, lat, lng]);
+  }, [mapObject, lat, lng, currentMapType]);
 
   const enableGlobeMode = () => {
     mapObject.current.remove();
