@@ -6,6 +6,7 @@ import Header from "../components/Layout/Header";
 import SideBar from "../components/Layout/SideNav";
 import { Map } from "../components/Map/map";
 import { useState } from "react";
+import { Script } from "next/script";
 
 export default function Home() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -14,7 +15,10 @@ export default function Home() {
       <Head>
         <title>My page title</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+        <script
+          src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"
+          async
+        ></script>
         <link
           href="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css"
           rel="stylesheet"
