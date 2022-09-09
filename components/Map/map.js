@@ -12,6 +12,12 @@ export const Map = () => {
   const [zoom, setZoom] = useState(13);
   const [mapObject, setMap] = useState(null);
 
+  //change language
+  //   map.setLayoutProperty("country-label", "text-field", [
+  //     "get",
+  //     `name_${language}`,
+  //   ]);
+
   const [currentMapType, setCurrentMapType] = useState(false);
 
   const geojson = {
@@ -89,6 +95,20 @@ export const Map = () => {
             .setLngLat(marker.geometry.coordinates)
             .addTo(map.current);
         }
+
+        const marker = new mapboxgl.Marker({
+          draggable: true,
+        })
+          .setLngLat([lng, lat])
+          .addTo(map.current);
+
+        function onDragEnd() {
+          const lngLat = marker.getLngLat();
+          //   coordinates.style.display = "block";
+          //   coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+        }
+
+        marker.on("dragend", onDragEnd);
       });
       return;
     } // initialize map only once

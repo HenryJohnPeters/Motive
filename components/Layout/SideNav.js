@@ -13,25 +13,25 @@ const SideBar = () => {
         <div className="w-15 mt-1 rounded-lg shadow shadow-md bg-white px-1 absolute bg-gray-100">
           <div
             onClick={() => setTab("Home")}
-            className=" m-2 p-1 rounded-md shadow-sm cursor-pointer bg-gray-200 hover:bg-gray-300"
+            className=" m-2 p-1 rounded-md shadow-sm cursor-pointer text-black bg-gray-200 hover:bg-gray-300"
           >
             <HiOutlineHome size={40} />
           </div>
           <div
             onClick={() => setTab("My Events")}
-            className=" m-2 p-1 rounded-md  shadow-sm cursor-pointer bg-gray-200 hover:bg-gray-300"
+            className=" m-2 p-1 rounded-md  shadow-sm cursor-pointer text-black bg-gray-200 hover:bg-gray-300"
           >
             <HiOutlineCalendar size={40} />
           </div>
           <div
             onClick={() => setTab("Find")}
-            className=" m-2 p-1 rounded-md  shadow-sm cursor-pointer bg-gray-200 hover:bg-gray-300"
+            className=" m-2 p-1 rounded-md  shadow-sm cursor-pointer text-black bg-gray-200 hover:bg-gray-300"
           >
             <BsBinoculars size={40} />
           </div>
           <div
             onClick={() => setTab("Settings")}
-            className=" m-2 p-1 rounded-md  shadow-sm cursor-pointer bg-gray-200 hover:bg-gray-300"
+            className=" m-2 p-1 rounded-md  shadow-sm cursor-pointer text-black bg-gray-200 hover:bg-gray-300"
           >
             <FiSettings size={40} />
           </div>
@@ -39,7 +39,7 @@ const SideBar = () => {
       ) : null}
 
       {tab ? (
-        <div className="w-60 h-[85%] rounded shadow-md bg-gray-100 px-1 absolute">
+        <div className="w-70 h-[85%] rounded shadow-md text-black bg-gray-100 px-1 absolute">
           <span
             onClick={() => setTab(null)}
             className="flex cursor-pointer justify-end"
