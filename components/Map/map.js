@@ -188,13 +188,13 @@ export const Map = () => {
       <div className="absolute top-30 right-0 z-40">
         <div
           onClick={() => enableGlobeMode()}
-          className="m-2 p-1 rounded-md shadow-sm cursor-pointer bg-gray-200 hover:bg-gray-300"
+          className="m-2 p-1 rounded-md text-black shadow-sm cursor-pointer bg-gray-200 hover:bg-gray-300"
         >
           <GiGlobe size={50} />
         </div>
         <div
           onClick={() => enableStreetMode()}
-          className="m-2 p-1 rounded-md shadow-sm cursor-pointer bg-gray-200 hover:bg-gray-300"
+          className="m-2 p-1 rounded-md shadow-sm text-black cursor-pointer bg-gray-200 hover:bg-gray-300"
         >
           <BsPerson size={50} />
         </div>
