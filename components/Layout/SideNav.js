@@ -30,16 +30,10 @@ const SideBar = () => {
             <BsBinoculars size={40} />
           </div>
           <div
-            onClick={() => setTab(true)}
+            onClick={() => setTab("Settings")}
             className=" m-2 p-1 rounded-md  shadow-sm cursor-pointer bg-gray-200 hover:bg-gray-300"
           >
             <FiSettings size={40} />
-          </div>
-          <div
-            onClick={() => setTab(true)}
-            className=" m-2 p-1 rounded-md  shadow-sm cursor-pointer bg-gray-200 hover:bg-gray-300"
-          >
-            <HiOutlineCalendar size={40} />
           </div>
         </div>
       ) : null}
@@ -54,8 +48,8 @@ const SideBar = () => {
           </span>
           {tab == "Home" ? <Home /> : null}
           {tab == "My Events" ? <MyEvents /> : null}
-          {tab == "Find" ? null : null}
-          {tab == "Settings" ? null : null}
+          {tab == "Find" ? <Find /> : null}
+          {tab == "Settings" ? <Settings /> : null}
         </div>
       ) : null}
     </div>
@@ -63,20 +57,7 @@ const SideBar = () => {
 };
 
 const Home = () => {
-  return (
-    <ul className="relative">
-      <li className="relative">
-        <a
-          className="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
-          href="#!"
-          data-mdb-ripple="true"
-          data-mdb-ripple-color="dark"
-        >
-          Sidenav link 1
-        </a>
-      </li>
-    </ul>
-  );
+  return <ul className="relative">Home</ul>;
 };
 const MyEvents = () => {
   return <div>MY EVENTS</div>;
@@ -86,7 +67,7 @@ const Find = () => {
   return <div>Find</div>;
 };
 const Settings = () => {
-  return <div>Find</div>;
+  return <div>Settings</div>;
 };
 
 export default SideBar;

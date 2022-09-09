@@ -9,7 +9,7 @@ export const Map = () => {
   const map = useRef(null);
   const [lng, setLng] = useState(-70.9);
   const [lat, setLat] = useState(42.35);
-  const [zoom, setZoom] = useState(11);
+  const [zoom, setZoom] = useState(13);
   const [mapObject, setMap] = useState(null);
 
   const [currentMapType, setCurrentMapType] = useState(false);
@@ -30,6 +30,13 @@ export const Map = () => {
       pitch: 50,
       //bearing: 170,
     });
+    map.current.on("style.load", () => {
+      // Add some 3D terrain
+      map.current.setTerrain({
+        source: "mapbox-dem",
+        exaggeration: 2,
+      });
+    });
 
     getUser();
     setMap(map);
@@ -43,6 +50,15 @@ export const Map = () => {
       style: "mapbox://styles/mapbox/streets-v11",
       zoom: 2,
       center: [lng, lat],
+    });
+    map.current.on("style.load", () => {
+      map.current.setFog({
+        color: "rgb(186, 210, 235)", // Lower atmosphere
+        "high-color": "rgb(36, 92, 223)", // Upper atmosphere
+        "horizon-blend": 0.02, // Atmosphere thickness (default 0.2 at low zooms)
+        "space-color": "rgb(11, 11, 25)", // Background color
+        "star-intensity": 1, // Background star brightness (default 0.35 at low zoooms )
+      });
     });
     setMap(mapObject);
     setCurrentMapType("Globe");
