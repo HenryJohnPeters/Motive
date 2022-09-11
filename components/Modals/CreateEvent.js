@@ -55,7 +55,7 @@ export default function Example(props) {
 								<div className="w-[1000px] h-[500px] ">
 									<Map setCoords={setCoords} />
 									<form>
-										<div className="flex flex-inline justify-center">
+										<div className="w-full">
 											<div> lat : {coords?.lat}</div>
 											<div> lng : {coords?.lng}</div>
 											<div className="mb-6">
