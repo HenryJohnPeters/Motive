@@ -6,8 +6,11 @@ export default async function handler(req, res) {
 		const client = await clientPromise;
 		const db = client.db("Motive");
 		//
-		let events = await db.collection("Events").find().sort({ going: -1 }).limit(100);
-		res.json({ status: 200, data: events });
+
+		console.log("made it here");
+
+		let events = await db.collection("Events").find().toArray();
+		res.json({ status: 200, events: events });
 	} catch (error) {
 		res.json({ status: 200, message: "Catch Block Hit: getUser. Error :" + error });
 	}

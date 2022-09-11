@@ -3,9 +3,16 @@
 @tailwind utilities;
 
 .map-container {
-  height: 90%;
+  height: 100%;
   width: 100%;
   position: absolute;
+}
+.map-modal {
+  height: 50%;
+  width: 95%;
+  position: relative;
+  z-index: 100000;
+  margin: auto;
 }
 
 html,

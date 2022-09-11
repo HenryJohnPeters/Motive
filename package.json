@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.0",
     "bcrypt": "^5.0.1",
     "dotenv": "^16.0.2",
     "mapbox-gl": "^2.10.0",

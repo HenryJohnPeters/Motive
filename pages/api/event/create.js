@@ -7,8 +7,11 @@ export default async function handler(req, res) {
 		const db = client.db("Motive");
 		//
 		const { name, description, links, creator, coords, geometry } = req.body;
-
-		let events = await db.collection("Events").insert({
+		console.log(req.body);
+		console.log("here");
+		console.log(req.body);
+		console.log("here");
+		await db.collection("Events").insertOne({
 			name: name,
 			description: description,
 			links: links,
@@ -19,6 +22,6 @@ export default async function handler(req, res) {
 
 		res.json({ status: 200, data: "Event Created" });
 	} catch (error) {
-		res.json({ status: 200, message: "Catch Block Hit: getUser. Error :" + error });
+		res.json({ status: 400, message: "Catch Block Hit: getUser. Error :" + error });
 	}
 }

@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-const { Schema } = mongoose;
+// import {mongoose} from "mongoose";
+// const { Schema } = mongoose;
 
 // type: "Feature",
 // properties: {
