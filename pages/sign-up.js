@@ -1,75 +1,67 @@
-import Image from "next/image";
-const login = (props) => {
+import React, { useState } from "react";
+
+function MyApp() {
+	const [sidebar, setsidebar] = useState();
 	return (
-		<div>
-			<div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-				<div className="w-full max-w-md space-y-8">
+		<div className="h-full bg-slate-300 w-full py-16 px-4">
+			<div className="flex flex-col items-center justify-center">
+				<div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
+					<p tabIndex={0} role="heading" aria-label="Login to your account" className="text-2xl font-extrabold leading-6 text-gray-800">
+						Sign Up With Email
+					</p>
+
 					<div>
-						{/* <Image width={30} height={30} className="mx-auto h-12 w-auto" alt="Your Company" /> */}
-						<h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
-						<p className="mt-2 text-center text-sm text-gray-600">
-							Or
-							<a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-								start your 14-day free trial
-							</a>
-						</p>
+						<lable className="text-sm font-medium leading-none text-gray-800">Email</lable>
+						<input aria-label="enter email adress" role="input" type="email" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
 					</div>
-					<form className="mt-8 space-y-6" action="#" method="POST">
-						<input type="hidden" name="remember" value="true" />
-						<div className="-space-y-px rounded-md shadow-sm">
-							<div>
-								<label className="sr-only">Email address</label>
-								<input
-									id="email-address"
-									name="email"
-									type="email"
-									autoComplete="email"
-									required
-									className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-									placeholder="Email address"
-								/>
-							</div>
-							<div>
-								<label className="sr-only">Password</label>
-								<input
-									id="password"
-									name="password"
-									type="password"
-									autoComplete="current-password"
-									required
-									className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-									placeholder="Password"
-								/>
+					<div className="mt-6  w-full">
+						<lable className="text-sm font-medium leading-none text-gray-800">Password</lable>
+						<div className="relative flex items-center justify-center">
+							<input aria-label="enter Password" role="input" type="password" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+							<div className="absolute right-0 mt-2 mr-3 cursor-pointer">
+								<svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M7.99978 2C11.5944 2 14.5851 4.58667 15.2124 8C14.5858 11.4133 11.5944 14 7.99978 14C4.40511 14 1.41444 11.4133 0.787109 8C1.41378 4.58667 4.40511 2 7.99978 2ZM7.99978 12.6667C9.35942 12.6664 10.6787 12.2045 11.7417 11.3568C12.8047 10.509 13.5484 9.32552 13.8511 8C13.5473 6.67554 12.8031 5.49334 11.7402 4.64668C10.6773 3.80003 9.35864 3.33902 7.99978 3.33902C6.64091 3.33902 5.32224 3.80003 4.25936 4.64668C3.19648 5.49334 2.45229 6.67554 2.14844 8C2.45117 9.32552 3.19489 10.509 4.25787 11.3568C5.32085 12.2045 6.64013 12.6664 7.99978 12.6667ZM7.99978 11C7.20413 11 6.44106 10.6839 5.87846 10.1213C5.31585 9.55871 4.99978 8.79565 4.99978 8C4.99978 7.20435 5.31585 6.44129 5.87846 5.87868C6.44106 5.31607 7.20413 5 7.99978 5C8.79543 5 9.55849 5.31607 10.1211 5.87868C10.6837 6.44129 10.9998 7.20435 10.9998 8C10.9998 8.79565 10.6837 9.55871 10.1211 10.1213C9.55849 10.6839 8.79543 11 7.99978 11ZM7.99978 9.66667C8.4418 9.66667 8.86573 9.49107 9.17829 9.17851C9.49085 8.86595 9.66644 8.44203 9.66644 8C9.66644 7.55797 9.49085 7.13405 9.17829 6.82149C8.86573 6.50893 8.4418 6.33333 7.99978 6.33333C7.55775 6.33333 7.13383 6.50893 6.82126 6.82149C6.5087 7.13405 6.33311 7.55797 6.33311 8C6.33311 8.44203 6.5087 8.86595 6.82126 9.17851C7.13383 9.49107 7.55775 9.66667 7.99978 9.66667Z"
+										fill="#71717A"
+									/>
+								</svg>
 							</div>
 						</div>
-
-						<div className="flex items-center justify-between">
-							<div className="flex items-center">
-								<input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-								<label className="ml-2 block text-sm text-gray-900">Remember me</label>
-							</div>
-
-							<div className="text-sm">
-								<a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-									Forgot your password?
-								</a>
+					</div>
+					<div className="mt-6  w-full">
+						<lable className="text-sm font-medium leading-none text-gray-800">Confirm Password</lable>
+						<div className="relative flex items-center justify-center">
+							<input aria-label="enter Password" role="input" type="password" className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2" />
+							<div className="absolute right-0 mt-2 mr-3 cursor-pointer">
+								<svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M7.99978 2C11.5944 2 14.5851 4.58667 15.2124 8C14.5858 11.4133 11.5944 14 7.99978 14C4.40511 14 1.41444 11.4133 0.787109 8C1.41378 4.58667 4.40511 2 7.99978 2ZM7.99978 12.6667C9.35942 12.6664 10.6787 12.2045 11.7417 11.3568C12.8047 10.509 13.5484 9.32552 13.8511 8C13.5473 6.67554 12.8031 5.49334 11.7402 4.64668C10.6773 3.80003 9.35864 3.33902 7.99978 3.33902C6.64091 3.33902 5.32224 3.80003 4.25936 4.64668C3.19648 5.49334 2.45229 6.67554 2.14844 8C2.45117 9.32552 3.19489 10.509 4.25787 11.3568C5.32085 12.2045 6.64013 12.6664 7.99978 12.6667ZM7.99978 11C7.20413 11 6.44106 10.6839 5.87846 10.1213C5.31585 9.55871 4.99978 8.79565 4.99978 8C4.99978 7.20435 5.31585 6.44129 5.87846 5.87868C6.44106 5.31607 7.20413 5 7.99978 5C8.79543 5 9.55849 5.31607 10.1211 5.87868C10.6837 6.44129 10.9998 7.20435 10.9998 8C10.9998 8.79565 10.6837 9.55871 10.1211 10.1213C9.55849 10.6839 8.79543 11 7.99978 11ZM7.99978 9.66667C8.4418 9.66667 8.86573 9.49107 9.17829 9.17851C9.49085 8.86595 9.66644 8.44203 9.66644 8C9.66644 7.55797 9.49085 7.13405 9.17829 6.82149C8.86573 6.50893 8.4418 6.33333 7.99978 6.33333C7.55775 6.33333 7.13383 6.50893 6.82126 6.82149C6.5087 7.13405 6.33311 7.55797 6.33311 8C6.33311 8.44203 6.5087 8.86595 6.82126 9.17851C7.13383 9.49107 7.55775 9.66667 7.99978 9.66667Z"
+										fill="#71717A"
+									/>
+								</svg>
 							</div>
 						</div>
-
-						<div>
-							<button type="submit" className="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-								<span className="absolute inset-y-0 left-0 flex items-center pl-3">
-									<svg className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-										<path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" />
-									</svg>
-								</span>
-								Sign in
-							</button>
-						</div>
-					</form>
+					</div>
+					<p className="text-sm mt-4 font-medium leading-none text-gray-500">
+						<span tabIndex={0} role="link" aria-label="Sign up here" className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
+							{" "}
+							<a href="login">Login?</a>
+						</span>
+						<br />
+						<span tabIndex={0} role="link" aria-label="Sign up here" className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer">
+							{" "}
+							<a href="sign-up">Forgot Password?</a>
+						</span>
+					</p>
+					<div className="mt-8">
+						<button role="button" aria-label="create my account" className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full">
+							Login with Email
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
 	);
-};
-export default login;
+}
+
+export default MyApp;
