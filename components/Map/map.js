@@ -152,6 +152,7 @@ export const Map = (props) => {
 				"space-color": "rgb(11, 11, 25)", // Background color
 				"star-intensity": 1, // Background star brightness (default 0.35 at low zoooms )
 			});
+			plotMarkers(markers);
 		});
 		// setMap(mapObject);
 		setCurrentMapType("Globe");
