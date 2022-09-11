@@ -6,7 +6,7 @@ function MyApp() {
 		<div className="h-full bg-slate-300 w-full py-16 px-4">
 			<div className="flex flex-col items-center justify-center">
 				<div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
-					<p tabIndex={0} role="heading" aria-label="Login to your account" className="text-2xl font-extrabold leading-6 text-gray-800">
+					<p tabIndex={0} aria-label="Login to your account" className="text-2xl font-extrabold leading-6 text-gray-800">
 						Login to your account
 					</p>
 					<p className="text-sm mt-4 font-medium leading-none text-gray-500">
