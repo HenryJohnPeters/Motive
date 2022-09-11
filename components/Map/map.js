@@ -28,14 +28,7 @@ export const Map = (props) => {
 		initMap();
 		getPosition();
 		getGlobalMarkers();
-		// plotMarkers(markers);
 	}, []);
-
-	//when map changes
-	useEffect(() => {
-		// getPosition(map);
-		// plotMarkers(markers);
-	}, [currentMapType]);
 
 	const getGlobalMarkers = () => {
 		fetch("/api/event/getGlobal")
@@ -152,9 +145,9 @@ export const Map = (props) => {
 				"space-color": "rgb(11, 11, 25)", // Background color
 				"star-intensity": 1, // Background star brightness (default 0.35 at low zoooms )
 			});
-			plotMarkers(markers);
 		});
 		// setMap(mapObject);
+		plotMarkers(markers);
 		setCurrentMapType("Globe");
 	};
 
